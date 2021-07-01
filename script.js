@@ -10,12 +10,12 @@ let number=0,current = 0,player = 0,total0=0,total1=0;
 score0.textContent = 0;
 score1.textContent = 0;
 const activeplayer0 = () => {
-    player0.classList.remove('player--active');
-    player1.classList.add('player--active');
-}
-const activeplayer1 = () => {
     player1.classList.remove('player--active');
     player0.classList.add('player--active');
+}
+const activeplayer1 = () => {
+    player0.classList.remove('player--active');
+    player1.classList.add('player--active');
 }
 const setcurrent0 = (any) => {
     current0.textContent = any;
@@ -51,12 +51,12 @@ document.querySelector('.btn--roll').addEventListener('click', function () {
             current = 0;
             if (player === 0) {
                 player = 1;
-                activeplayer0();
+                activeplayer1();
                 setcurrent0(current);
                 current = 0;
             } else {
                 player = 0;
-                activeplayer1();
+                activeplayer0();
                 setcurrent1(current);
                 current = 0;
             }
@@ -76,14 +76,14 @@ document.querySelector('.btn--hold').addEventListener('click', function () {
     if (player === 0) {
         total0 = total0 + current;
         current = 0;
-        activeplayer0();
+        activeplayer1();
         setcurrent0(0);
         setscore0(total0);
         player = 1;
     } else {
         total1 = current + total1;
         current = 0;
-        activeplayer1();
+        activeplayer0();
         setcurrent1(0);
         setscore1(total1);
         player = 0;
