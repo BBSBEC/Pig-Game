@@ -9,6 +9,7 @@ const player1 = document.querySelector('.player--1');
 let number=0,current = 0,player = 0,total0=0,total1=0;
 score0.textContent = 0;
 score1.textContent = 0;
+img.classList.add('hidden');
 const activeplayer0 = () => {
     player1.classList.remove('player--active');
     player0.classList.add('player--active');
@@ -36,7 +37,8 @@ const player1win = () => {
     player1.classList.add('player--winner');
 }
 document.querySelector('.btn--roll').addEventListener('click', function () {
-    number = Math.trunc(Math.random() * 6)+1;
+    number = Math.trunc(Math.random() * 6) + 1;
+    img.classList.remove('hidden');
     img.src = `Images/dice-${number}.png`;
     if (!(score0.textContent >= 100 || score1.textContent >= 100)) {
         if (!(number === 1)) {
